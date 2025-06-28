@@ -1,0 +1,319 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 210 53% 32%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 47% 95%;
+    --accent-foreground: 210 53% 32%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 210 53% 32%;
+
+    --radius: 0.75rem;
+
+    --dental-blue: 210 53% 32%;
+    --dental-light: 210 47% 95%;
+    --dental-accent: 210 100% 97%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(210, 235, 255, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(210, 235, 255, 0.2) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .dental-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--dental-blue)) 0%, 
+      hsl(var(--primary)) 50%,
+      #4A90E2 100%
+    );
+    position: relative;
+  }
+
+  .dental-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  
+  .dental-light-bg {
+    background: linear-gradient(135deg, 
+      hsl(var(--dental-light)) 0%, 
+      rgba(210, 235, 255, 0.6) 50%,
+      rgba(245, 250, 255, 0.8) 100%
+    );
+    position: relative;
+  }
+
+  .dental-light-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(ellipse at 30% 20%, rgba(210, 235, 255, 0.15) 0%, transparent 40%),
+      radial-gradient(ellipse at 70% 80%, rgba(210, 235, 255, 0.1) 0%, transparent 35%);
+    pointer-events: none;
+  }
+  
+  .dental-accent-bg {
+    background: linear-gradient(135deg,
+      hsl(var(--dental-accent)) 0%,
+      rgba(240, 248, 255, 0.9) 50%,
+      rgba(250, 252, 255, 0.95) 100%
+    );
+    position: relative;
+  }
+
+  .dental-accent-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(210, 235, 255, 0.2) 0%, transparent 30%),
+      radial-gradient(circle at 75% 75%, rgba(210, 235, 255, 0.15) 0%, transparent 25%);
+    pointer-events: none;
+  }
+
+  .dental-shimmer {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)) 0%,
+      #4A90E2 25%,
+      #5BA7F7 50%,
+      #4A90E2 75%,
+      hsl(var(--primary)) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: dental-shine 3s ease-in-out infinite;
+  }
+
+  @keyframes dental-shine {
+    0% {
+      background-position: -200% 0;
+    }
+    50% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Dental aesthetic patterns */
+  .dental-pattern {
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(210, 235, 255, 0.15) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  .dental-wave-bg {
+    background-image: 
+      linear-gradient(135deg, 
+        hsl(var(--dental-light)) 0%, 
+        rgba(210, 235, 255, 0.4) 100%
+      ),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d2ebff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Mobile video container adjustments */
+  @media (max-width: 768px) {
+    .video-container {
+      max-width: 95vw;
+      margin: 0 auto;
+    }
+    
+    .video-container .video-wrapper {
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+  }
+
+  /* Service card animations */
+  .service-card-enter {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .service-card-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  /* Smooth scroll behavior for mobile animations */
+  @media (max-width: 768px) {
+    .service-animation {
+      will-change: transform, opacity;
+    }
+  }
+
+  /* Performance optimization for animations */
+  .animate-slide-up {
+    animation: slideUpFade 0.7s ease-out forwards;
+  }
+
+  @keyframes slideUpFade {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Staggered animation delays */
+  .animate-delay-1 { animation-delay: 0.1s; }
+  .animate-delay-2 { animation-delay: 0.25s; }
+  .animate-delay-3 { animation-delay: 0.4s; }
+  .animate-delay-4 { animation-delay: 0.55s; }
+  .animate-delay-5 { animation-delay: 0.7s; }
+  .animate-delay-6 { animation-delay: 0.85s; }
+  .animate-delay-7 { animation-delay: 1s; }
+
+  /* Enhanced smooth scroll for select dropdowns */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+    -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+  }
+
+  .smooth-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .smooth-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .smooth-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+  }
+
+  .smooth-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(156, 163, 175, 0.8);
+  }
+
+  /* Mobile-specific smooth scrolling improvements */
+  @media (max-width: 768px) {
+    .smooth-scroll {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      overscroll-behavior: contain;
+    }
+  }
+
+  /* Additional mobile touch improvements */
+  @media (hover: none) and (pointer: coarse) {
+    .smooth-scroll {
+      scroll-snap-type: y proximity;
+      scroll-padding: 8px;
+    }
+  }
+}
